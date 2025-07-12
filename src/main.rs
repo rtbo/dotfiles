@@ -161,7 +161,7 @@ fn find_pkg_path(home: &Path, pkg: &str) -> Option<PathBuf> {
     //  - ~/.config/pkg
     //  - ~/.config/pkg[suffix]
     // [suffix] being one of:
-    //   rc, .d, .conf, .conf.d, .toml, .xml, .json, .yml
+    //   rc, .d, .conf, .conf.d, .toml, .xml, .json, .yml, .lua
     // it stops at the first occurence found
 
     fn check(path: PathBuf) -> Option<PathBuf> {
@@ -169,7 +169,7 @@ fn find_pkg_path(home: &Path, pkg: &str) -> Option<PathBuf> {
     }
 
     let suffixes = &[
-        "rc", ".d", ".conf", ".conf.d", ".toml", ".xml", ".json", ".yml",
+        "rc", ".d", ".conf", ".conf.d", ".toml", ".xml", ".json", ".yml", ".lua",
     ];
     let dotpkg = format!(".{pkg}");
     if let Some(path) = check(home.join(&dotpkg)) {
